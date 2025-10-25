@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://spaug7gdke5a"]
+[gd_scene load_steps=2 format=3 uid="uid://dd8wwa6lgde6x"]
+
+[ext_resource type="Script" uid="uid://dm3s24syi2kb8" path="res://scripts/AnimationComponent.cs" id="1_g1q46"]
 
 [node name="AnimationComponent" type="Node"]
 script = ExtResource("1_g1q46")

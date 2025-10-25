@@ -14,7 +14,7 @@ public partial class MovementComponent : Node
   [Export]
   public float airSpeed = 10f;
 
-  private bool IsJumping = false;
+  public bool IsJumping = false;
 
   public void handleHorizontalMovement(CharacterBody2D body, float direction)
   {
