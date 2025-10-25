@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://4pqund3nukl7" path="res://scene/Level.tscn" id="1_iibxp"]
 [ext_resource type="PackedScene" uid="uid://ng0srr8uh46a" path="res://scene/Player.tscn" id="2_dtoa7"]
-[ext_resource type="PackedScene" uid="uid://ddnjqt545ih3n" path="res://scene/platform.tscn" id="4_iqpdx"]
+[ext_resource type="PackedScene" uid="uid://cmpy8viaclyb4" path="res://scene/tilemaps.tscn" id="4_jkyyr"]
 
 [node name="World" type="Node2D"]
 
@@ -10,17 +10,16 @@
 position = Vector2(2, 2)
 
 [node name="Player" parent="Level" instance=ExtResource("2_dtoa7")]
-position = Vector2(98, 57)
-
-[node name="Platform" parent="Level" instance=ExtResource("4_iqpdx")]
-position = Vector2(1, 134)
-
-[node name="ColorRect" type="ColorRect" parent="Level"]
-z_index = -1
-offset_left = -1409.0
-offset_top = -861.0
-offset_right = 1435.0
-offset_bottom = 738.0
-color = Color(0.8346143, 0.8346143, 0.8346143, 1)
+position = Vector2(-285, -95)
 
 [node name="Camera2D" type="Camera2D" parent="Level"]
+
+[node name="ColorRect" type="ColorRect" parent="Level/Camera2D"]
+z_index = -1
+offset_left = -757.0
+offset_top = -414.0
+offset_right = -729.5918
+offset_bottom = -381.57822
+scale = Vector2(71.3521, 32.598427)
+
+[node name="Tilemaps" parent="Level" instance=ExtResource("4_jkyyr")]

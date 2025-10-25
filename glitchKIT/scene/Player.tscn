@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cbishxhcl80wj" path="res://scene/components/MovementComponent.tscn" id="5_dc1pm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_82gks"]
-size = Vector2(40, 40)
+size = Vector2(77, 71)
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("gravityComponent", "inputComponent", "movementComponent")]
 script = ExtResource("1_y30ri")
@@ -17,10 +17,11 @@ movementComponent = NodePath("MovementComponent")
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_right = 40.0
 offset_bottom = 40.0
+scale = Vector2(1.9229324, 1.7710488)
 color = Color(0, 0, 0, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(20, 20)
+position = Vector2(38.5, 35.5)
 shape = SubResource("RectangleShape2D_82gks")
 
 [node name="GravityComponent" parent="." instance=ExtResource("2_62i1b")]
