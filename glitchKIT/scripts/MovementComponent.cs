@@ -2,23 +2,38 @@ using Godot;
 
 public partial class MovementComponent : Node
 {
-	[ExportSubgroup("Settings")]
-	[Export]
-	public float Speed = 100.0f;
-	[Export]
-  	public float JumpVelocity = -350f;
+  [ExportSubgroup("Settings")]
+  [Export]
+  public float JumpSpeed = 380f;
+  [Export]
+  public float acceleration = 490f;
+  [Export]
+  public float deceleration = 0.1f;
+  [Export]
+  public float speed = 240f;
+  [Export]
+  public float airSpeed = 10f;
 
-  	public bool IsJumping = false;
-	
-	public void handleHorizontalMovement(CharacterBody2D body, float direction)
-	{
-		body.Velocity = new Vector2(direction * Speed, body.Velocity.Y);
-	}
+  private bool IsJumping = false;
 
-  	public void HandleJump(CharacterBody2D body, bool wantToJump){
-	if(wantToJump && body.IsOnFloor())
-	  body.Velocity = new Vector2(body.Velocity.X, JumpVelocity);
+  public void handleHorizontalMovement(CharacterBody2D body, float direction)
+  {
+    if(direction != 0){
+      body.Velocity = new Vector2(direction * speed, body.Velocity.Y);
+    }else{
+      body.Velocity = new Vector2(Mathf.MoveToward(body.Velocity.X, 0, speed * deceleration), body.Velocity.Y);
+    }
+  }
 
-	IsJumping = body.Velocity.Y < 0 && !body.IsOnFloor();
+  public void HandleJump(CharacterBody2D body, bool wantToJump, float gravity){
+    if(wantToJump && body.IsOnFloor()){
+      body.Velocity -= new Vector2(body.Velocity.X, (float) Mathf.Lerp(JumpSpeed, acceleration, 0.1));
+    }
+
+    if(Input.IsActionJustReleased("jump")){
+      body.Velocity = new Vector2(body.Velocity.X, Mathf.Lerp(body.Velocity.Y, gravity, 0.2f));
+    }
+
+    IsJumping = body.Velocity.Y < 0 && !body.IsOnFloor();
   }
 }

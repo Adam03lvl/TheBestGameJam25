@@ -1,3 +1,4 @@
 [gd_scene format=3 uid="uid://spaug7gdke5a"]
 
 [node name="AnimationComponent" type="Node"]
+script = ExtResource("1_g1q46")
