@@ -6,7 +6,6 @@
 [node name="World" type="Node2D"]
 
 [node name="Level" parent="." instance=ExtResource("1_iibxp")]
-script = null
 
 [node name="Player" parent="Level" instance=ExtResource("2_dtoa7")]
 position = Vector2(95, 55)
