@@ -4,7 +4,7 @@ public partial class GravityComponent : Node
 {
 	[ExportSubgroup("Settings")]
 	[Export]
-	public float Gravity = 1000.0f;
+  public float Gravity = 1000.0f;
 	
 	bool isFalling = false;
 	
