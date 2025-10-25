@@ -261,15 +261,9 @@ animationComponent = NodePath("AnimationComponent")
 position = Vector2(26.496376, -6.0221634)
 scale = Vector2(0.11894211, 0.11894205)
 sprite_frames = SubResource("SpriteFrames_t3pjh")
-animation = &"fall"
-frame_progress = 0.8391901
-
-[node name="ColorRect" type="ColorRect" parent="."]
-visible = false
-offset_right = 40.0
-offset_bottom = 40.0
-scale = Vector2(1.9229324, 1.7710488)
-color = Color(0, 0, 0, 1)
+animation = &"run"
+frame = 5
+frame_progress = 0.24449843
 
 [node name="GravityComponent" parent="." instance=ExtResource("2_62i1b")]
 

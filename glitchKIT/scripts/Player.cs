@@ -13,7 +13,7 @@ public partial class Player : CharacterBody2D
   public AnimationComponent animationComponent;
 
   public float spawnX = -250; 
-  public float spawnY = 100; 
+  public float spawnY = 50; 
   public float deathY = 175; 
   public bool shouldDie = false;
 
