@@ -1,0 +1,33 @@
+[gd_scene load_steps=2 format=3 uid="uid://cgqe5kvbbaa36"]
+
+[ext_resource type="Script" uid="uid://1d5xsyqahwcs" path="res://scripts/MainMenuScripts/MainMenu.cs" id="1_kxn8c"]
+
+[node name="Menu" type="Node2D"]
+script = ExtResource("1_kxn8c")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+offset_left = 3.0
+offset_top = -2.0
+offset_right = 1148.0
+offset_bottom = 649.0
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 7.0
+offset_right = 1153.0
+offset_bottom = 644.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Button1" type="Button" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 394.0
+offset_top = 275.0
+offset_right = 771.0
+offset_bottom = 396.0
+text = "START GAME"
+
+[connection signal="button_up" from="CanvasLayer/Control/Button1" to="." method="_on_button_1_button_up"]
