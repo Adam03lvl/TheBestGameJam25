@@ -1,3 +1,14 @@
-[gd_scene format=3 uid="uid://4pqund3nukl7"]
+[gd_scene load_steps=4 format=3 uid="uid://4pqund3nukl7"]
 
-[node name="Level" type="Node2D"]
+[ext_resource type="Script" uid="uid://c4c14hg0o2c2y" path="res://scripts/Level.cs" id="1_1rkvq"]
+[ext_resource type="PackedScene" uid="uid://dykq35vt6j0m4" path="res://scene/components/ToggleScreenComponent.tscn" id="2_2klcx"]
+[ext_resource type="PackedScene" uid="uid://d0kmoxvx6lx6o" path="res://scene/components/InputComponent.tscn" id="3_ceuto"]
+
+[node name="Level" type="Node2D" node_paths=PackedStringArray("toggleScreenComponent", "inputComponent")]
+script = ExtResource("1_1rkvq")
+toggleScreenComponent = NodePath("ToggleScreenComponent")
+inputComponent = NodePath("InputComponent")
+
+[node name="ToggleScreenComponent" parent="." instance=ExtResource("2_2klcx")]
+
+[node name="InputComponent" parent="." instance=ExtResource("3_ceuto")]

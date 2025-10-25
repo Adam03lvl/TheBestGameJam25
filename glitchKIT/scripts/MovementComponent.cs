@@ -4,15 +4,13 @@ public partial class MovementComponent : Node
 {
   [ExportSubgroup("Settings")]
   [Export]
-  public float JumpSpeed = 380f;
+  public float JumpSpeed = 340f;
   [Export]
-  public float acceleration = 490f;
+  public float jumpAcceleration = 400f;
   [Export]
   public float deceleration = 0.1f;
   [Export]
-  public float speed = 240f;
-  [Export]
-  public float airSpeed = 10f;
+  public float speed = 120f;
 
   public bool IsJumping = false;
 
@@ -27,11 +25,11 @@ public partial class MovementComponent : Node
 
   public void HandleJump(CharacterBody2D body, bool wantToJump, float gravity){
     if(wantToJump && body.IsOnFloor()){
-      body.Velocity -= new Vector2(body.Velocity.X, (float) Mathf.Lerp(JumpSpeed, acceleration, 0.1));
+      body.Velocity -= new Vector2(body.Velocity.X, (float) Mathf.Lerp(JumpSpeed, jumpAcceleration, 0.1));
     }
 
     if(Input.IsActionJustReleased("jump")){
-      body.Velocity = new Vector2(body.Velocity.X, Mathf.Lerp(body.Velocity.Y, gravity, 0.2f));
+      body.Velocity = new Vector2(body.Velocity.X, Mathf.Lerp(body.Velocity.Y, gravity, 0.05f));
     }
 
     IsJumping = body.Velocity.Y < 0 && !body.IsOnFloor();
