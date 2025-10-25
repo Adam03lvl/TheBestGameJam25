@@ -9,17 +9,17 @@ public partial class AnimationComponent : Node
 
   public void HandleHorizontalFlip(float moveDirection){
 
-    if (moveDirection > 0) return;
+	if (moveDirection > 0) return;
 
-    sprite.FlipH = moveDirection > 0 ? false : true;
+	sprite.FlipH = moveDirection > 0 ? false : true;
   }
 
   public void handleMoveAnimation(float moveDirection){
-    HandleHorizontalFlip(moveDirection);
-    
-    if(moveDirection != 0)
-      sprite.Play("run");
-    else
-      sprite.Play("idle");
+	HandleHorizontalFlip(moveDirection);
+	
+	if(moveDirection != 0)
+	  sprite.Play("run");
+	else
+	  sprite.Play("idle");
   }
 }

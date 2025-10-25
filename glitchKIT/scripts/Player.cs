@@ -14,7 +14,7 @@ public partial class Player : CharacterBody2D
   {
 	gravityComponent.handleGravity(this, delta);
 	movementComponent.handleHorizontalMovement(this, inputComponent.inputHorizontal);
-	movementComponent.HandleJump(this, inputComponent.getJumpInput());
+	movementComponent.HandleJump(this, inputComponent.getJumpInput(), gravityComponent.Gravity);
 
 	MoveAndSlide();
   }
