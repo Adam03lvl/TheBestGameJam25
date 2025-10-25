@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://4pqund3nukl7" path="res://scene/Level.tscn" id="1_iibxp"]
 [ext_resource type="PackedScene" uid="uid://ng0srr8uh46a" path="res://scene/Player.tscn" id="2_dtoa7"]
-[ext_resource type="PackedScene" uid="uid://cmpy8viaclyb4" path="res://scene/tilemaps.tscn" id="4_jkyyr"]
+[ext_resource type="PackedScene" path="res://scene/tilemaps.tscn" id="4_jkyyr"]
 
 [node name="World" type="Node2D"]
 
