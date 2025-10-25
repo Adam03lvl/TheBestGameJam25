@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dykq35vt6j0m4"]
+
+[ext_resource type="Script" uid="uid://dxfkcrcuq2p5r" path="res://scripts/ToggleScreenComponent.cs" id="1_5y5cw"]
+
+[node name="ToggleComponent" type="Node"]
+script = ExtResource("1_5y5cw")

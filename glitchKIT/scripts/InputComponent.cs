@@ -13,4 +13,8 @@ public partial class InputComponent : Node
 	{
 		return Input.IsActionJustPressed("jump");
 	}
+
+  public bool getToggleInput(){
+    return Input.IsActionJustPressed("toggle"); 
+  }
 }
