@@ -1,9 +1,9 @@
 [gd_scene load_steps=61 format=3 uid="uid://ng0srr8uh46a"]
 
 [ext_resource type="Script" uid="uid://cjdafd3rj5eiv" path="res://scripts/Player.cs" id="1_y30ri"]
-[ext_resource type="PackedScene" uid="uid://bgooxd60nn7el" path="res://scene/components/GravityComponent.tscn" id="2_62i1b"]
-[ext_resource type="PackedScene" uid="uid://d0kmoxvx6lx6o" path="res://scene/components/InputComponent.tscn" id="4_82gks"]
-[ext_resource type="PackedScene" uid="uid://cbishxhcl80wj" path="res://scene/components/MovementComponent.tscn" id="5_dc1pm"]
+[ext_resource type="PackedScene" uid="uid://bgooxd60nn7el" path="res://Scenes/components/GravityComponent.tscn" id="2_62i1b"]
+[ext_resource type="PackedScene" uid="uid://d0kmoxvx6lx6o" path="res://Scenes/components/InputComponent.tscn" id="4_82gks"]
+[ext_resource type="PackedScene" uid="uid://cbishxhcl80wj" path="res://Scenes/components/MovementComponent.tscn" id="5_dc1pm"]
 [ext_resource type="Texture2D" uid="uid://bwbsvo3v6tftp" path="res://assets/player/idle/Wraith_03_Idle_000.png" id="5_stxrh"]
 [ext_resource type="Texture2D" uid="uid://bpa75i2160tcg" path="res://assets/player/idle/Wraith_03_Idle_001.png" id="6_yk8u4"]
 [ext_resource type="Texture2D" uid="uid://cl1gjguyty4nv" path="res://assets/player/idle/Wraith_03_Idle_002.png" id="7_f48a8"]
@@ -56,7 +56,7 @@
 [ext_resource type="Texture2D" uid="uid://ct7eesw82nfob" path="res://assets/player/fall/Wraith_03_Taunt_014.png" id="40_5oqk2"]
 [ext_resource type="Texture2D" uid="uid://qn3cjs0nfjht" path="res://assets/player/walking/Wraith_03_Moving Forward_011.png" id="40_nlhp4"]
 [ext_resource type="Texture2D" uid="uid://disvs15jm3fon" path="res://assets/player/fall/Wraith_03_Taunt_015.png" id="41_dcjss"]
-[ext_resource type="PackedScene" uid="uid://dd8wwa6lgde6x" path="res://scene/components/AnimationComponent.tscn" id="41_o5v3d"]
+[ext_resource type="PackedScene" uid="uid://dd8wwa6lgde6x" path="res://Scenes/components/AnimationComponent.tscn" id="41_o5v3d"]
 [ext_resource type="Texture2D" uid="uid://bruaivx0gum4x" path="res://assets/player/fall/Wraith_03_Taunt_016.png" id="42_mxc63"]
 [ext_resource type="Texture2D" uid="uid://dydls83b2gool" path="res://assets/player/fall/Wraith_03_Taunt_017.png" id="43_547tu"]
 

@@ -1,9 +1,9 @@
 [gd_scene load_steps=10 format=4 uid="uid://vcia7mijw2g2"]
 
-[ext_resource type="PackedScene" uid="uid://4pqund3nukl7" path="res://scene/Level.tscn" id="1_iibxp"]
-[ext_resource type="PackedScene" uid="uid://ng0srr8uh46a" path="res://scene/Player.tscn" id="2_dtoa7"]
+[ext_resource type="PackedScene" uid="uid://4pqund3nukl7" path="res://Scenes/Level.tscn" id="1_iibxp"]
+[ext_resource type="PackedScene" uid="uid://ng0srr8uh46a" path="res://Scenes/Player.tscn" id="2_dtoa7"]
 [ext_resource type="Texture2D" uid="uid://cfc62f1xdxlh0" path="res://assets/tilemaps/contrast/Tilemap/monochrome_tilemap_transparent.png" id="4_iqpdx"]
-[ext_resource type="PackedScene" uid="uid://cmpy8viaclyb4" path="res://scene/tilemaps.tscn" id="4_jkyyr"]
+[ext_resource type="PackedScene" uid="uid://cmpy8viaclyb4" path="res://Scenes/tilemaps.tscn" id="4_jkyyr"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_4wjk2"]
 
