@@ -17,11 +17,12 @@ public partial class Player : CharacterBody2D
   public AudioStreamPlayer2D keySound;
 
   public Area2D key;
-  public Area2D spikes;
+  public Area2D realSpikes;
+  public Area2D fakeSpikes;
 
   public float spawnX = -250;
   public float spawnY = 50;
-  public float deathY = 165;
+  public float deathY = 170;
   public bool shouldDie = false;
   public bool isDying= false;
   public bool hasKey = false;
@@ -35,7 +36,8 @@ public partial class Player : CharacterBody2D
   public override void _Ready()
   {
 	key = GetNode<Area2D>("../Key");
-	spikes = GetNode<Area2D>("../Spikes");
+	realSpikes = GetNode<Area2D>("../RealSpikes");
+	fakeSpikes = GetNode<Area2D>("../FakeSpikes");
   }
 
   public void reset()
@@ -73,7 +75,9 @@ public partial class Player : CharacterBody2D
 	if (inputComponent.getMoveInput())
 		walkingSound.Play();
 
-	if (spikes.OverlapsBody(this)) shouldDie = true;
+	if (realSpikes.OverlapsBody(this) || fakeSpikes.OverlapsBody(this)) {
+	shouldDie = true;
+  }
 
 	if (!hasKey && key.OverlapsBody(this))
 	{

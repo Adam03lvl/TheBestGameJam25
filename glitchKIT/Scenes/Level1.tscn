@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://bq5tbpko2pam0"]
+[gd_scene load_steps=18 format=4 uid="uid://bq5tbpko2pam0"]
 
 [ext_resource type="Script" uid="uid://c4c14hg0o2c2y" path="res://scripts/Level.cs" id="1_t3or0"]
 [ext_resource type="PackedScene" uid="uid://ng0srr8uh46a" path="res://Scenes/Player.tscn" id="2_ysn8j"]
@@ -1030,13 +1030,15 @@ size = Vector2(12, 41)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6ll4n"]
 size = Vector2(143, 7)
 
-[node name="Level1" type="Node2D" node_paths=PackedStringArray("toggleScreenComponent", "inputComponent", "player", "finish")]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kylad"]
+size = Vector2(415, 10)
+
+[node name="Level1" type="Node2D" node_paths=PackedStringArray("toggleScreenComponent", "inputComponent", "player")]
 script = ExtResource("1_t3or0")
 toggleScreenComponent = NodePath("ToggleComponent")
 inputComponent = NodePath("InputComponent")
 lvl = 1
 player = NodePath("Player")
-finish = NodePath("Finish")
 
 [node name="Player" parent="." instance=ExtResource("2_ysn8j")]
 position = Vector2(-222, 50)
@@ -1053,17 +1055,17 @@ position = Vector2(63, -11)
 tile_map_data = PackedByteArray("AAD6/wcAAQALAAgAAAD7/wcAAQALAAgAAAD8/wcAAQALAAgAAAD9/wcAAQAMAAgAAAD5/wcAAQAKAAgAAAD5/wgAAQAQAAkAAAD6/wgAAQAQAAkAAAD7/wgAAQAQAAkAAAD8/wgAAQAQAAkAAAD9/wgAAQAQAAkAAADr/wgAAQAPAAoAAADr/wcAAQAPAAoAAADr/wYAAQAPAAoAAADr/wUAAQAPAAoAAADr/wQAAQAPAAoAAADr/wMAAQAPAAoAAADr/wIAAQAPAAoAAADr/wEAAQAPAAoAAADr/wAAAQAPAAoAAADr////AQAPAAoAAADr//7/AQAPAAoAAADr//3/AQAPAAoAAADr//z/AQAPAAoAAADr//v/AQAPAAoAAADr//r/AQAPAAoAAADr//n/AQAPAAoAAADr//j/AQAPAAkAAAAOAAgAAQAPAAoAAAAOAAcAAQAPAAoAAAAOAAYAAQAPAAoAAAAOAAUAAQAPAAoAAAAOAAQAAQAPAAoAAAAOAAMAAQAPAAoAAAAOAAIAAQAPAAoAAAAOAAEAAQAPAAoAAAAOAAAAAQAPAAoAAAAOAP//AQAPAAoAAAAOAP7/AQAPAAoAAAAOAP3/AQAPAAoAAAAOAPz/AQAPAAoAAAAOAPv/AQAPAAoAAAAOAPr/AQAPAAoAAAAOAPn/AQAPAAoAAAAOAPj/AQAPAAoAAAANAAgAAQARAAoAAAANAAcAAQARAAoAAAANAAYAAQARAAoAAAANAAUAAQARAAoAAAANAAQAAQARAAoAAAANAAMAAQARAAoAAAANAAIAAQARAAoAAAANAAEAAQARAAoAAAANAAAAAQARAAoAAAANAP//AQARAAoAAAANAP7/AQARAAoAAAANAP3/AQARAAoAAAANAPz/AQARAAoAAAANAPv/AQARAAoAAAANAPr/AQARAAoAAAANAPn/AQARAAoAAAANAPj/AQARAAkAAADq/wgAAQARAAoAAADq/wcAAQARAAoAAADq/wYAAQARAAoAAADq/wUAAQARAAoAAADq/wQAAQARAAoAAADq/wMAAQARAAoAAADq/wIAAQARAAoAAADq/wEAAQARAAoAAADq/wAAAQARAAoAAADq////AQARAAoAAADq//7/AQARAAoAAADq//3/AQARAAoAAADq//z/AQARAAoAAADq//v/AQARAAoAAADq//r/AQARAAoAAADq//n/AQARAAoAAADq//j/AQARAAoAAADx//j/AQAQAAkAAADy//j/AQAQAAkAAADz//j/AQAQAAkAAAD0//j/AQAQAAkAAAD1//j/AQAQAAkAAAD2//j/AQAQAAkAAAD3//j/AQAQAAkAAAD4//j/AQAQAAkAAAD5//j/AQAQAAkAAAD6//j/AQAQAAkAAAD7//j/AQAQAAkAAAD8//j/AQAQAAkAAAACAPj/AQAQAAkAAAADAPj/AQAQAAkAAAAEAPj/AQAQAAkAAAAFAPj/AQAQAAkAAAAGAPj/AQAQAAkAAAAHAPj/AQAQAAkAAAAIAPj/AQAQAAkAAAAJAPj/AQAQAAkAAAALAPj/AQAQAAkAAAAMAPj/AQAQAAkAAADs//j/AQAQAAkAAADr//f/AQAQAAsAAADs//f/AQAQAAsAAADt//f/AQAQAAsAAADu//f/AQAQAAsAAADv//f/AQAQAAsAAADw//f/AQAQAAsAAADx//f/AQAQAAsAAADy//f/AQAQAAsAAADz//f/AQAQAAsAAAD0//f/AQAQAAsAAAD1//f/AQAQAAsAAAD2//f/AQAQAAsAAAD3//f/AQAQAAsAAAD4//f/AQAQAAsAAAD5//f/AQAQAAsAAAD6//f/AQAQAAsAAAD7//f/AQAQAAsAAAD8//f/AQAQAAsAAAD9//f/AQAQAAsAAAD+//f/AQAQAAsAAAD///f/AQAQAAsAAAAAAPf/AQAQAAsAAAABAPf/AQAQAAsAAAACAPf/AQAQAAsAAAADAPf/AQAQAAsAAAAEAPf/AQAQAAsAAAAFAPf/AQAQAAsAAAAGAPf/AQAQAAsAAAAHAPf/AQAQAAsAAAAIAPf/AQAQAAsAAAAJAPf/AQAQAAsAAAAKAPf/AQAQAAsAAAALAPf/AQAQAAsAAAAMAPf/AQAQAAsAAAANAPf/AQAQAAsAAADt//j/AQAGAAgAAADu//j/AQAGAAgAAADv//j/AQAGAAgAAADw//j/AQAGAAgAAAD9//j/AQAGAAgAAAD+//j/AQAGAAgAAAD///j/AQAGAAgAAAAAAPj/AQAGAAgAAAABAPj/AQAGAAgAAAAKAPj/AQAGAAgAAADr/wkAAQAQAAkAAADs/wkAAQAQAAkAAADt/wkAAQAQAAkAAADu/wkAAQAQAAkAAADv/wkAAQAQAAkAAADw/wkAAQARAAkAAAANAAkAAQAQAAkAAAAMAAkAAQAQAAkAAAALAAkAAQAPAAkAAAD7/wYAAQAQAAQAAADw/woAAQARAAoAAADw/wsAAQARAAoAAADw/wwAAQARAAoAAAALAAwAAQAPAAoAAAALAAsAAQAPAAoAAAALAAoAAQAPAAoAAADx/wsAAQADAAkAAADy/wsAAQADAAkAAADz/wsAAQADAAkAAAD0/wsAAQADAAkAAAD1/wsAAQADAAkAAAD2/wsAAQADAAkAAAD3/wsAAQADAAkAAAD4/wsAAQADAAkAAAD5/wsAAQADAAkAAAD6/wsAAQADAAkAAAD7/wsAAQADAAkAAAD8/wsAAQADAAkAAAD9/wsAAQADAAkAAAD+/wsAAQADAAkAAAD//wsAAQADAAkAAAAAAAsAAQADAAkAAAABAAsAAQADAAkAAAACAAsAAQADAAkAAAADAAsAAQADAAkAAAAEAAsAAQADAAkAAAAFAAsAAQADAAkAAAAGAAsAAQADAAkAAAAHAAsAAQADAAkAAAAIAAsAAQADAAkAAAAJAAsAAQADAAkAAAAKAAsAAQADAAkAAAA=")
 tile_set = SubResource("TileSet_cg6sp")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(0.5, 0.5)
-
 [node name="ToggleComponent" parent="." instance=ExtResource("5_bdlbp")]
+
+[node name="Camera2D" type="Camera2D" parent="ToggleComponent"]
+zoom = Vector2(0.5, 0.5)
 
 [node name="InputComponent" parent="." instance=ExtResource("6_2h8qs")]
 
 [node name="Key" type="Area2D" parent="."]
 position = Vector2(-8, 90)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Key"]
+[node name="KeyCollider" type="CollisionShape2D" parent="Key"]
 position = Vector2(-0.25, 2.5)
 shape = SubResource("RectangleShape2D_t3or0")
 
@@ -1074,10 +1076,10 @@ position = Vector2(283, 125)
 position = Vector2(-4, -13)
 shape = SubResource("RectangleShape2D_ysn8j")
 
-[node name="Spikes" type="Area2D" parent="."]
+[node name="RealSpikes" type="Area2D" parent="."]
 position = Vector2(-222, 50)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Spikes"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RealSpikes"]
 position = Vector2(212.5, 125.5)
 shape = SubResource("RectangleShape2D_6ll4n")
 
@@ -1090,3 +1092,9 @@ texture = ExtResource("7_ysn8j")
 [node name="CaveSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("8_6ll4n")
 autoplay = true
+
+[node name="FakeSpikes" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FakeSpikes"]
+position = Vector2(31, 177)
+shape = SubResource("RectangleShape2D_kylad")

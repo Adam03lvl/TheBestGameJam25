@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=3 uid="uid://ng0srr8uh46a"]
+[gd_scene load_steps=64 format=3 uid="uid://ng0srr8uh46a"]
 
 [ext_resource type="Script" uid="uid://cjdafd3rj5eiv" path="res://scripts/Player.cs" id="1_y30ri"]
 [ext_resource type="PackedScene" uid="uid://bgooxd60nn7el" path="res://Scenes/components/GravityComponent.tscn" id="2_62i1b"]
@@ -61,6 +61,7 @@
 [ext_resource type="Texture2D" uid="uid://dydls83b2gool" path="res://assets/player/fall/Wraith_03_Taunt_017.png" id="43_547tu"]
 [ext_resource type="AudioStream" uid="uid://cmfs4761v52dr" path="res://assets/sounds/walking.mp3" id="60_wenux"]
 [ext_resource type="AudioStream" uid="uid://bp4s1qsknmy3a" path="res://assets/sounds/jump.mp3" id="61_vy33c"]
+[ext_resource type="AudioStream" uid="uid://cfchlxnjdspso" path="res://assets/sounds/Key.mp3" id="62_wenux"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_t3pjh"]
 animations = [{
@@ -252,13 +253,14 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("gravityComponent", "inputComponent", "movementComponent", "animationComponent", "walkingSound")]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("gravityComponent", "inputComponent", "movementComponent", "animationComponent", "walkingSound", "keySound")]
 script = ExtResource("1_y30ri")
 gravityComponent = NodePath("GravityComponent")
 inputComponent = NodePath("InputComponent")
 movementComponent = NodePath("MovementComponent")
 animationComponent = NodePath("AnimationComponent")
 walkingSound = NodePath("Walking")
+keySound = NodePath("Key")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(1.0000019, -4)
@@ -288,3 +290,6 @@ stream = ExtResource("60_wenux")
 
 [node name="Jumping" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("61_vy33c")
+
+[node name="Key" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("62_wenux")

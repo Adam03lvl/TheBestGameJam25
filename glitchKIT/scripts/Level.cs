@@ -11,26 +11,53 @@ public partial class Level : Node
 	public int lvl;
 	[Export]
 	public Player player;
-	[Export]
+
+  public bool AR = SceneManager.instance.AR;
+
 	public Area2D finish;
+	public CollisionShape2D keyCollider;
 
 	public TileMapLayer real;
 	public TileMapLayer fake;
 
+  public Area2D realSpikes;
+  public Area2D fakeSpikes;
+
 	public bool isFinished = false;
 	public bool isReal = true;
 
-	public override void _Ready()
-	{
-		real = GetNode<TileMapLayer>("Tilemaps/real");
-		fake = GetNode<TileMapLayer>("Tilemaps/fake");
-		finish = GetNode<Area2D>("Finish");
+  public override void _Ready()
+  {
 
-	// fake.Enabled = false;
-		real.Enabled = true;
-		fake.CollisionEnabled = false;
-		fake.Visible = false;
+	real = GetNode<TileMapLayer>("Tilemaps/real");
+	fake = GetNode<TileMapLayer>("Tilemaps/fake");
+
+	realSpikes = GetNode<Area2D>("RealSpikes");
+	fakeSpikes = GetNode<Area2D>("FakeSpikes");
+
+	finish = GetNode<Area2D>("Finish");
+	keyCollider = GetNode<CollisionShape2D>("Key/KeyCollider");
+
+	if(AR){
+	  real.Enabled = true;
+	  fake.Visible = false;
+	  fake.CollisionEnabled = false;
+	}else{
+	  real.Enabled = true;
+	  fake.Enabled = false;
 	}
+
+
+	foreach(CollisionShape2D node in fakeSpikes.GetChildren()){
+	  node.Disabled = true;
+	}
+
+	foreach(CollisionShape2D node in realSpikes.GetChildren()){
+	  node.Disabled = false;
+	}
+
+	keyCollider.Disabled = true;
+  }
 
 	public override void _Process(double delta)
 	{
@@ -39,9 +66,17 @@ public partial class Level : Node
 
 		if (inputComponent.getToggleInput())
 		{
-			toggleScreenComponent.toggleScreen(real, fake);
+			toggleScreenComponent.toggleScreen(AR, real, fake, realSpikes, fakeSpikes, keyCollider);
 			isReal = !isReal;
 		}
+
+	if(isReal){
+	  if (realSpikes.OverlapsBody(player)) {
+	  player.shouldDie = true;
+	}
+	}else if (fakeSpikes.OverlapsBody(player)){
+	  player.shouldDie = true;
+	}
 
 		if (isFinished)
 		{
@@ -61,7 +96,7 @@ public partial class Level : Node
 	{
 		if (player.shouldDie && !isReal)
 		{
-			toggleScreenComponent.toggleScreen(real, fake);
+			toggleScreenComponent.toggleScreen(AR, real, fake, realSpikes, fakeSpikes, keyCollider);
 			isReal = !isReal;
 		}
 	}
