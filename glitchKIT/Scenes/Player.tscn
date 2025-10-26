@@ -61,7 +61,7 @@
 [ext_resource type="Texture2D" uid="uid://dydls83b2gool" path="res://assets/player/fall/Wraith_03_Taunt_017.png" id="43_547tu"]
 [ext_resource type="AudioStream" uid="uid://cmfs4761v52dr" path="res://assets/sounds/walking.mp3" id="60_wenux"]
 [ext_resource type="AudioStream" uid="uid://bp4s1qsknmy3a" path="res://assets/sounds/jump.mp3" id="61_vy33c"]
-[ext_resource type="AudioStream" uid="uid://icfp347x3vks" path="res://assets/sounds/key.mp3" id="62_wenux"]
+[ext_resource type="AudioStream" uid="uid://cfchlxnjdspso" path="res://assets/sounds/Key.mp3" id="62_wenux"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_t3pjh"]
 animations = [{

@@ -2,13 +2,26 @@ using Godot;
 
 public partial class ToggleScreenComponent : Node
 {
-  public void toggleScreen(TileMapLayer real, TileMapLayer fake)
+  public void toggleScreen(bool ar, TileMapLayer real, TileMapLayer fake, Area2D realS, Area2D fakeS, CollisionShape2D key)
   {
+	if(ar){
+	  real.CollisionEnabled = !real.CollisionEnabled;
+	  fake.CollisionEnabled = !fake.CollisionEnabled;
+	}else{
+	  real.Enabled = !real.Enabled;
+	  fake.Enabled = !fake.Enabled;
+	}
 
 	SceneManager.instance.ToggleShader();
-	real.CollisionEnabled = !real.CollisionEnabled;
-	fake.CollisionEnabled = !fake.CollisionEnabled;
-  // real.Enabled = !real.Enabled;
-  // fake.Enabled = !fake.Enabled;
+
+	key.Disabled = !key.Disabled;
+
+	foreach(CollisionShape2D node in fakeS.GetChildren()){
+	  node.Disabled = !node.Disabled;
+	}
+
+	foreach(CollisionShape2D node in realS.GetChildren()){
+	  node.Disabled = !node.Disabled;
+	}
   }
 }
