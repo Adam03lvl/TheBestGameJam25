@@ -1031,7 +1031,7 @@ size = Vector2(12, 41)
 size = Vector2(143, 7)
 
 [node name="Level1" type="Node2D" node_paths=PackedStringArray("toggleScreenComponent", "inputComponent", "player", "finish")]
-script = ExtResource("1_x7a1n")
+script = ExtResource("1_t3or0")
 toggleScreenComponent = NodePath("ToggleComponent")
 inputComponent = NodePath("InputComponent")
 lvl = 1
