@@ -24,6 +24,8 @@ public partial class Player : CharacterBody2D
   }
 
   public void handleDeath(double delta){
+	
+	
 	if(Position.Y > deathY) shouldDie = true;
 
 	if(shouldDie){
@@ -44,7 +46,12 @@ public partial class Player : CharacterBody2D
 	animationComponent.handleMoveAnimation(inputComponent.inputHorizontal);
 	animationComponent.handleJumpAnimation(movementComponent.IsJumping);
 	movementComponent.HandleJump(this, inputComponent.getJumpInput(), gravityComponent.Gravity);
-  handleDeath(delta);
+	
+	if (collision.get_collider().is_in_group("Spikes")) {
+		shouldDie = true;
+	}
+	
+	handleDeath(delta);
 
 
 	MoveAndSlide();

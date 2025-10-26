@@ -12,10 +12,10 @@ public partial class GravityComponent : Node
 	
 	public void handleGravity(CharacterBody2D body, double delta)
 	{
-    body.Velocity = new Vector2(
-        body.Velocity.X, 
-        Mathf.Min(body.Velocity.Y + Gravity * (float)delta, MaxSpeed)
-        );
+	body.Velocity = new Vector2(
+		body.Velocity.X, 
+		Mathf.Min(body.Velocity.Y + Gravity * (float)delta, MaxSpeed)
+		);
 			
 		IsFalling = body.Velocity.Y > 0 && !body.IsOnFloor();
 	}
