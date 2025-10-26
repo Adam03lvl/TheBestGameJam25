@@ -13,6 +13,8 @@ public partial class Player : CharacterBody2D
   public AnimationComponent animationComponent;
   [Export]
   public AudioStreamPlayer2D walkingSound;
+  [Export]
+  public AudioStreamPlayer2D keySound;
 
   public Area2D key;
   public Area2D spikes;
@@ -75,6 +77,7 @@ public partial class Player : CharacterBody2D
 
 	if (!hasKey && key.OverlapsBody(this))
 	{
+	  keySound.Play();
 	  movementComponent.stopMoving = true;
 	  gravityComponent.stopMoving = true;
 	  SceneManager.instance.ShowImage("res://assets/Keycollected.png", .5f, .2f);
