@@ -8,6 +8,7 @@ public partial class SceneManager : Node
 
   private CanvasLayer _uiLayer;
   private TextureRect _keyImage;
+  private ColorRect _glitchShader;
   private Tween _currentTween;
 
   public override void _Ready()
@@ -26,7 +27,25 @@ public partial class SceneManager : Node
 	_keyImage.ExpandMode = TextureRect.ExpandModeEnum.IgnoreSize;
 	_keyImage.StretchMode = TextureRect.StretchModeEnum.Scale;
 
-	_uiLayer.AddChild(_keyImage);
+    _glitchShader = new ColorRect();
+    _glitchShader.Visible = false;
+
+    _glitchShader.SetAnchorsPreset(Control.LayoutPreset.FullRect);
+
+    var shader = GD.Load<Shader>("res://scripts/shaders/glitch.gdshader");
+    if (shader != null)
+    {
+        var shaderMaterial = new ShaderMaterial();
+        shaderMaterial.Shader = shader;
+        _glitchShader.Material = shaderMaterial;
+    }
+    else
+    {
+        GD.PrintErr("Failed to load shader");
+    }
+
+    _uiLayer.AddChild(_keyImage);
+    _uiLayer.AddChild(_glitchShader);
   }
 
   public void ShowImage(string imagePath, float displayTime = 2.0f, float fadeOutTime = 0.5f)
@@ -60,6 +79,10 @@ public partial class SceneManager : Node
 	var tween = CreateTween();
 	tween.TweenProperty(_keyImage, "modulate:a", 0.0f, fadeTime);
 	tween.TweenCallback(Callable.From(() => _keyImage.Visible = false));
+  }
+
+  public void ToggleShader(){
+    _glitchShader.Visible = !_glitchShader.Visible;
   }
 
   public void ChangeScene(String sceneName) {
