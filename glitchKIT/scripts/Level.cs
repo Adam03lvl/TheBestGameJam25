@@ -13,6 +13,7 @@ public partial class Level : Node
 	public Player player;
 	[Export]
 	public Area2D finish;
+
 	public TileMapLayer real;
 	public TileMapLayer fake;
 
@@ -25,9 +26,10 @@ public partial class Level : Node
 		fake = GetNode<TileMapLayer>("Tilemaps/fake");
 		finish = GetNode<Area2D>("Finish");
 
+	// fake.Enabled = false;
 		real.Enabled = true;
-		fake.Visible = false;
 		fake.CollisionEnabled = false;
+		fake.Visible = false;
 	}
 
 	public override void _Process(double delta)

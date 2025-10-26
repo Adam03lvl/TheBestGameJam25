@@ -17,7 +17,7 @@ public partial class Player : CharacterBody2D
 
   public float spawnX = -250;
   public float spawnY = 50;
-  public float deathY = 175;
+  public float deathY = 170;
   public bool shouldDie = false;
   public bool isDying= false;
   public bool hasKey = false;
