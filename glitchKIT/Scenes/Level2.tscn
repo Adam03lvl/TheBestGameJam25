@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://bkxqrtk3j5m1s"]
+[gd_scene load_steps=15 format=4 uid="uid://bkxqrtk3j5m1s"]
 
 [ext_resource type="Script" uid="uid://c4c14hg0o2c2y" path="res://scripts/Level.cs" id="1_eufum"]
 [ext_resource type="PackedScene" uid="uid://ng0srr8uh46a" path="res://Scenes/Player.tscn" id="2_jg2qr"]
@@ -1021,6 +1021,14 @@ separation = Vector2i(1, 1)
 physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_cf1a2")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jriq2"]
+size = Vector2(19.5, 93)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ehjmi"]
+size = Vector2(12, 21.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p4u3k"]
+
 [node name="Level2" type="Node2D" node_paths=PackedStringArray("toggleScreenComponent", "inputComponent", "player")]
 script = ExtResource("1_eufum")
 toggleScreenComponent = NodePath("ToggleComponent")
@@ -1029,7 +1037,7 @@ lvl = 2
 player = NodePath("Player")
 
 [node name="Player" parent="." instance=ExtResource("2_jg2qr")]
-position = Vector2(-250, 50)
+position = Vector2(-241, 50)
 
 [node name="Tilemaps" parent="." instance=ExtResource("3_8lnj8")]
 
@@ -1039,7 +1047,6 @@ tile_map_data = PackedByteArray("AAAOAAQAFQAPAAoAAAAOAAMAFQAPAAoAAAAOAAIAFQAPAAo
 tile_set = SubResource("TileSet_jkyyr")
 
 [node name="fake" type="TileMapLayer" parent="Tilemaps"]
-visible = false
 position = Vector2(63, -11)
 tile_map_data = PackedByteArray("AADr/wgAAQAPAAoAAADr/wcAAQAPAAoAAADr/wYAAQAPAAoAAADr/wUAAQAPAAoAAADr/wQAAQAPAAoAAADr/wMAAQAPAAoAAADr/wIAAQAPAAoAAADr/wEAAQAPAAoAAADr/wAAAQAPAAoAAADr////AQAPAAoAAADr//7/AQAPAAoAAADr//3/AQAPAAoAAADr//z/AQAPAAoAAADr//v/AQAPAAoAAADr//r/AQAPAAoAAADr//n/AQAPAAoAAADr//j/AQAPAAkAAAAOAAgAAQAPAAoAAAAOAAcAAQAPAAoAAAAOAAYAAQAPAAoAAAAOAAUAAQAPAAoAAAAOAAQAAQAPAAoAAAAOAAMAAQAPAAoAAAAOAAIAAQAPAAoAAAAOAAEAAQAPAAoAAAAOAAAAAQAPAAoAAAAOAP//AQAPAAoAAAAOAP7/AQAPAAoAAAAOAP3/AQAPAAoAAAAOAPz/AQAPAAoAAAAOAPv/AQAPAAoAAAAOAPr/AQAPAAoAAAAOAPn/AQAPAAoAAAAOAPj/AQAPAAoAAAANAAgAAQARAAoAAAANAAcAAQARAAoAAAANAAYAAQARAAoAAAANAAUAAQARAAoAAAANAAQAAQARAAoAAAANAAMAAQARAAoAAAANAAIAAQARAAoAAAANAAEAAQARAAoAAAANAAAAAQARAAoAAAANAP//AQARAAoAAAANAP7/AQARAAoAAAANAP3/AQARAAoAAAANAPz/AQARAAoAAAANAPv/AQARAAoAAAANAPr/AQARAAoAAAANAPn/AQARAAoAAAANAPj/AQARAAkAAADq/wgAAQARAAoAAADq/wcAAQARAAoAAADq/wYAAQARAAoAAADq/wUAAQARAAoAAADq/wQAAQARAAoAAADq/wMAAQARAAoAAADq/wIAAQARAAoAAADq/wEAAQARAAoAAADq/wAAAQARAAoAAADq////AQARAAoAAADq//7/AQARAAoAAADq//3/AQARAAoAAADq//z/AQARAAoAAADq//v/AQARAAoAAADq//r/AQARAAoAAADq//n/AQARAAoAAADq//j/AQARAAoAAADx//j/AQAQAAkAAADy//j/AQAQAAkAAADz//j/AQAQAAkAAAD0//j/AQAQAAkAAAD1//j/AQAQAAkAAAD2//j/AQAQAAkAAAD3//j/AQAQAAkAAAD4//j/AQAQAAkAAAD5//j/AQAQAAkAAAD6//j/AQAQAAkAAAD7//j/AQAQAAkAAAD8//j/AQAQAAkAAAACAPj/AQAQAAkAAAADAPj/AQAQAAkAAAAEAPj/AQAQAAkAAAAFAPj/AQAQAAkAAAAGAPj/AQAQAAkAAAAHAPj/AQAQAAkAAAAIAPj/AQAQAAkAAAAJAPj/AQAQAAkAAAALAPj/AQAQAAkAAAAMAPj/AQAQAAkAAADs//j/AQAQAAkAAADr//f/AQAQAAsAAADs//f/AQAQAAsAAADt//f/AQAQAAsAAADu//f/AQAQAAsAAADv//f/AQAQAAsAAADw//f/AQAQAAsAAADx//f/AQAQAAsAAADy//f/AQAQAAsAAADz//f/AQAQAAsAAAD0//f/AQAQAAsAAAD1//f/AQAQAAsAAAD2//f/AQAQAAsAAAD3//f/AQAQAAsAAAD4//f/AQAQAAsAAAD5//f/AQAQAAsAAAD6//f/AQAQAAsAAAD7//f/AQAQAAsAAAD8//f/AQAQAAsAAAD9//f/AQAQAAsAAAD+//f/AQAQAAsAAAD///f/AQAQAAsAAAAAAPf/AQAQAAsAAAABAPf/AQAQAAsAAAACAPf/AQAQAAsAAAADAPf/AQAQAAsAAAAEAPf/AQAQAAsAAAAFAPf/AQAQAAsAAAAGAPf/AQAQAAsAAAAHAPf/AQAQAAsAAAAIAPf/AQAQAAsAAAAJAPf/AQAQAAsAAAAKAPf/AQAQAAsAAAALAPf/AQAQAAsAAAAMAPf/AQAQAAsAAAANAPf/AQAQAAsAAADt//j/AQAGAAgAAADu//j/AQAGAAgAAADv//j/AQAGAAgAAADw//j/AQAGAAgAAAD9//j/AQAGAAgAAAD+//j/AQAGAAgAAAD///j/AQAGAAgAAAAAAPj/AQAGAAgAAAABAPj/AQAGAAgAAAAKAPj/AQAGAAgAAADr/wkAAQAQAAkAAADs/wkAAQAQAAkAAADt/wkAAQAQAAkAAADu/wkAAQAQAAkAAADv/wkAAQAQAAkAAADw/wkAAQAQAAkAAAANAAkAAQAQAAkAAAD0/wYAAQAPAAgAAAD1/wYAAQARAAgAAAACAAYAAQARAAgAAAABAAYAAQAPAAgAAAD0/wcAAQAGAAgAAAD1/wcAAQAGAAgAAAABAAcAAQAGAAgAAAACAAcAAQAGAAgAAAAMAAkAAQAQAAkAAAALAAkAAQAQAAkAAAACAAIAAQAPAAoAAAACAAEAAQAPAAoAAAACAAAAAQAPAAoAAAACAP//AQAPAAoAAAACAP7/AQAPAAoAAAACAP3/AQAPAAoAAAABAP3/AQAGAAgAAFABAP7/AQAGAAgAAFABAP//AQAGAAgAAFABAAAAAQAGAAgAAFABAAEAAQAGAAgAAFABAAIAAQAGAAgAAFDx/wkAAQAQAAkAAAA=")
 tile_set = SubResource("TileSet_cg6sp")
@@ -1049,10 +1056,10 @@ zoom = Vector2(0.5, 0.5)
 
 [node name="ColorRect" type="ColorRect" parent="Camera2D"]
 z_index = -1
-offset_left = -1202.0
-offset_top = -617.00006
-offset_right = -1168.6074
-offset_bottom = -577.61475
+offset_left = -1191.0
+offset_top = -617.0
+offset_right = -1157.6074
+offset_bottom = -577.6147
 scale = Vector2(71.3521, 32.598427)
 color = Color(0, 0, 0, 1)
 
@@ -1060,7 +1067,20 @@ color = Color(0, 0, 0, 1)
 
 [node name="InputComponent" parent="." instance=ExtResource("6_r5vkr")]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." groups=["Spikes"]]
+[node name="Spikes" type="Area2D" parent="."]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
-polygon = PackedVector2Array(96, -59, 84, -55, 84, -54, 94, -51, 94, -49, 88, -47, 88, -46, 94, -44, 94, -42, 84, -39, 84, -38, 94, -35, 94, -33, 88, -31, 88, -30, 94, -28, 94, -26, 84, -23, 84, -22, 94, -19, 94, -17, 88, -15, 88, -14, 94, -12, 94, -10, 84, -7, 84, -6, 94, -3, 94, -1, 88, 1, 88, 2, 94, 4, 94, 6, 84, 9, 84, 10, 94, 13, 94, 15, 88, 17, 88, 18, 94, 20, 94, 22, 90, 23, 84, 25, 84, 26, 94, 29, 94, 31, 88, 33, 88, 34, 94, 36, 96, 37)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spikes"]
+position = Vector2(93.75, -12)
+shape = SubResource("RectangleShape2D_jriq2")
+
+[node name="Key" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Key"]
+position = Vector2(-7, 21.75)
+shape = SubResource("RectangleShape2D_ehjmi")
+
+[node name="Finish" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Finish"]
+position = Vector2(268, 121)
+shape = SubResource("RectangleShape2D_p4u3k")

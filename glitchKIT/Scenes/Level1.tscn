@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://bq5tbpko2pam0"]
+[gd_scene load_steps=15 format=4 uid="uid://bq5tbpko2pam0"]
 
 [ext_resource type="Script" uid="uid://c4c14hg0o2c2y" path="res://scripts/Level.cs" id="1_t3or0"]
 [ext_resource type="PackedScene" uid="uid://ng0srr8uh46a" path="res://Scenes/Player.tscn" id="2_ysn8j"]
@@ -1025,6 +1025,9 @@ size = Vector2(15.5, 19)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ysn8j"]
 size = Vector2(12, 41)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ll4n"]
+size = Vector2(143, 7)
+
 [node name="Level1" type="Node2D" node_paths=PackedStringArray("toggleScreenComponent", "inputComponent", "player", "finish")]
 script = ExtResource("1_t3or0")
 toggleScreenComponent = NodePath("ToggleComponent")
@@ -1034,7 +1037,7 @@ player = NodePath("Player")
 finish = NodePath("Finish")
 
 [node name="Player" parent="." instance=ExtResource("2_ysn8j")]
-position = Vector2(-250, 50)
+position = Vector2(-222, 50)
 
 [node name="Tilemaps" parent="." instance=ExtResource("3_6ll4n")]
 
@@ -1054,10 +1057,10 @@ zoom = Vector2(0.5, 0.5)
 
 [node name="ColorRect" type="ColorRect" parent="Camera2D"]
 z_index = -1
-offset_left = -1158.0
-offset_top = -606.0
-offset_right = -1124.6074
-offset_bottom = -566.6147
+offset_left = -1141.0
+offset_top = -606.00006
+offset_right = -1107.6074
+offset_bottom = -566.61475
 scale = Vector2(71.3521, 32.598427)
 color = Color(0, 0, 0, 1)
 
@@ -1078,3 +1081,10 @@ position = Vector2(283, 125)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Finish"]
 position = Vector2(-4, -13)
 shape = SubResource("RectangleShape2D_ysn8j")
+
+[node name="Spikes" type="Area2D" parent="."]
+position = Vector2(-222, 50)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spikes"]
+position = Vector2(212.5, 125.5)
+shape = SubResource("RectangleShape2D_6ll4n")

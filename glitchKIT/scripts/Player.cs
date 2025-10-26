@@ -13,6 +13,7 @@ public partial class Player : CharacterBody2D
 	public AnimationComponent animationComponent;
 
 	public Area2D key;
+	public Area2D spikes;
 
 	public float spawnX = -250;
 	public float spawnY = 50;
@@ -29,6 +30,7 @@ public partial class Player : CharacterBody2D
 	public override void _Ready()
 	{
 		key = GetNode<Area2D>("../Key");
+		spikes = GetNode<Area2D>("../Spikes");
 	}
 
 	public void reset()
@@ -64,14 +66,10 @@ public partial class Player : CharacterBody2D
 		animationComponent.handleJumpAnimation(movementComponent.IsJumping);
 		movementComponent.HandleJump(this, inputComponent.getJumpInput(), gravityComponent.Gravity);
 
-		if (collision.get_collider().is_in_group("Spikes"))
+		if (spikes.OverlapsBody(this))
 		{
 			shouldDie = true;
 		}
-
-		handleDeath(delta);
-
-
 
 		if (key.OverlapsBody(this))
 		{
