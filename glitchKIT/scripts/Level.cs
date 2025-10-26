@@ -37,23 +37,23 @@ public partial class Level : Node
 
 	if(inputComponent.getToggleInput()){
 	  toggleScreenComponent.toggleScreen(real, fake);
-    isReal = !isReal;
+	isReal = !isReal;
   }
 
   if(isFinished){
-    SceneManager.instance.ChangeScene($"Level{lvl+1}");
+	SceneManager.instance.ChangeScene($"Level{lvl+1}");
   }
   }
 
   public void handleFinish(){
-    if(player.hasKey && finish.OverlapsBody(player))
-      isFinished = true;
+	if(player.hasKey && finish.OverlapsBody(player))
+	  isFinished = true;
   }
 
   public void handleRestart(){
-    if(player.shouldDie && !isReal){
-      toggleScreenComponent.toggleScreen(real, fake);
-      isReal = !isReal;
-    }
+	if(player.shouldDie && !isReal){
+	  toggleScreenComponent.toggleScreen(real, fake);
+	  isReal = !isReal;
+	}
   }
 }
