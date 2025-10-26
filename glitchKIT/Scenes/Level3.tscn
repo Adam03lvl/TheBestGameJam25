@@ -11,7 +11,7 @@
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_4wjk2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iqpdx"]
-texture = ExtResource("4_p6pjf")
+texture = ExtResource("4_nni88")
 separation = Vector2i(1, 1)
 1:0/0 = 0
 2:0/0 = 0
@@ -506,7 +506,7 @@ physics_layer_0/physics_material = SubResource("PhysicsMaterial_4wjk2")
 sources/21 = SubResource("TileSetAtlasSource_iqpdx")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cf1a2"]
-texture = ExtResource("4_p6pjf")
+texture = ExtResource("4_nni88")
 separation = Vector2i(1, 1)
 1:0/0 = 0
 2:0/0 = 0
@@ -1041,7 +1041,7 @@ finish = NodePath("Finish")
 [node name="Player" parent="." instance=ExtResource("2_jg2qr")]
 position = Vector2(-250, 50)
 
-[node name="Tilemaps" parent="." instance=ExtResource("3_cp0jt")]
+[node name="Tilemaps" parent="." instance=ExtResource("3_8lnj8")]
 
 [node name="real" type="TileMapLayer" parent="Tilemaps"]
 position = Vector2(64, -11)
@@ -1056,9 +1056,9 @@ tile_set = SubResource("TileSet_cg6sp")
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(0.5, 0.5)
 
-[node name="ToggleComponent" parent="." instance=ExtResource("5_m7vvj")]
+[node name="ToggleComponent" parent="." instance=ExtResource("5_oi2l3")]
 
-[node name="InputComponent" parent="." instance=ExtResource("6_kg31f")]
+[node name="InputComponent" parent="." instance=ExtResource("6_r5vkr")]
 
 [node name="Spikes" type="Area2D" parent="."]
 

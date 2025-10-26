@@ -1028,13 +1028,14 @@ size = Vector2(108, 9)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rgu2x"]
 size = Vector2(20, 43)
 
-[node name="Level1" type="Node2D" node_paths=PackedStringArray("toggleScreenComponent", "inputComponent", "player")]
+[node name="Level1" type="Node2D" node_paths=PackedStringArray("toggleScreenComponent", "inputComponent", "player", "finish")]
 z_index = -1
 script = ExtResource("1_084pi")
 toggleScreenComponent = NodePath("ToggleComponent")
 inputComponent = NodePath("InputComponent")
 lvl = 4
 player = NodePath("Player")
+finish = NodePath("Finish")
 
 [node name="Player" parent="." instance=ExtResource("2_43mlh")]
 position = Vector2(-250, 50)
