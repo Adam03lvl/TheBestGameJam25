@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://bkxqrtk3j5m1s"]
+[gd_scene load_steps=16 format=4 uid="uid://e32riv334qr0"]
 
 [ext_resource type="Script" uid="uid://c4c14hg0o2c2y" path="res://scripts/Level.cs" id="1_eufum"]
 [ext_resource type="PackedScene" uid="uid://ng0srr8uh46a" path="res://Scenes/Player.tscn" id="2_jg2qr"]
@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cfc62f1xdxlh0" path="res://assets/tilemaps/contrast/Tilemap/monochrome_tilemap_transparent.png" id="4_nni88"]
 [ext_resource type="PackedScene" uid="uid://dykq35vt6j0m4" path="res://Scenes/components/ToggleScreenComponent.tscn" id="5_oi2l3"]
 [ext_resource type="PackedScene" uid="uid://d0kmoxvx6lx6o" path="res://Scenes/components/InputComponent.tscn" id="6_r5vkr"]
-[ext_resource type="Texture2D" uid="uid://cd4fjkckif0n2" path="res://assets/bg/level2.png" id="7_ehjmi"]
+[ext_resource type="Texture2D" uid="uid://dwwrrlfj3lesn" path="res://assets/bg/level1.jpg" id="7_ehjmi"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_4wjk2"]
 
@@ -692,7 +692,6 @@ separation = Vector2i(1, 1)
 4:8/0 = 0
 5:8/0 = 0
 6:8/0 = 0
-6:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 7:8/0 = 0
 8:8/0 = 0
 9:8/0 = 0
@@ -719,7 +718,6 @@ separation = Vector2i(1, 1)
 1:9/0 = 0
 2:9/0 = 0
 3:9/0 = 0
-3:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 4:9/0 = 0
 5:9/0 = 0
 6:9/0 = 0
@@ -1022,25 +1020,24 @@ separation = Vector2i(1, 1)
 physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_cf1a2")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jriq2"]
-size = Vector2(19.5, 93)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1ktle"]
+size = Vector2(108, 9)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ehjmi"]
-size = Vector2(12, 21.5)
+[sub_resource type="CircleShape2D" id="CircleShape2D_1ktle"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_p4u3k"]
-size = Vector2(27, 46)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rgu2x"]
+size = Vector2(20, 43)
 
 [node name="Level2" type="Node2D" node_paths=PackedStringArray("toggleScreenComponent", "inputComponent", "player", "finish")]
 script = ExtResource("1_eufum")
 toggleScreenComponent = NodePath("ToggleComponent")
 inputComponent = NodePath("InputComponent")
-lvl = 2
+lvl = 3
 player = NodePath("Player")
 finish = NodePath("Finish")
 
 [node name="Player" parent="." instance=ExtResource("2_jg2qr")]
-position = Vector2(-241, 50)
+position = Vector2(-250, 50)
 
 [node name="Tilemaps" parent="." instance=ExtResource("3_8lnj8")]
 
@@ -1064,23 +1061,24 @@ zoom = Vector2(0.5, 0.5)
 [node name="Spikes" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Spikes"]
-position = Vector2(93.75, -12)
-shape = SubResource("RectangleShape2D_jriq2")
+position = Vector2(-169, 127.5)
+shape = SubResource("RectangleShape2D_1ktle")
 
 [node name="Key" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Key"]
-position = Vector2(-112, 12)
-shape = SubResource("RectangleShape2D_ehjmi")
+position = Vector2(-246, -86)
+shape = SubResource("CircleShape2D_1ktle")
+debug_color = Color(0, 0.6, 0.69803923, 1)
 
 [node name="Finish" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Finish"]
-position = Vector2(270.5, 110)
-shape = SubResource("RectangleShape2D_p4u3k")
+position = Vector2(270, 106)
+shape = SubResource("RectangleShape2D_rgu2x")
 
-[node name="Level2" type="Sprite2D" parent="."]
+[node name="Level1" type="Sprite2D" parent="."]
 z_index = -1
-position = Vector2(2, 17)
-scale = Vector2(2.3820226, 2.3820224)
+position = Vector2(1.6066589, 9.75)
+scale = Vector2(1.0466666, 1.0466666)
 texture = ExtResource("7_ehjmi")
