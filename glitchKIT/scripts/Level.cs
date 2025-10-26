@@ -64,6 +64,10 @@ public partial class Level : Node
 		handleRestart();
 		handleFinish();
 
+	if(inputComponent.getRestart()){
+	  SceneManager.instance.ChangeScene("Menu");
+	}
+
 		if (inputComponent.getToggleInput())
 		{
 			toggleScreenComponent.toggleScreen(AR, real, fake, realSpikes, fakeSpikes, keyCollider);

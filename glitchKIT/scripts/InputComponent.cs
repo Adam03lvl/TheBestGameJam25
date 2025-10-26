@@ -13,6 +13,10 @@ public partial class InputComponent : Node
 	{
 		return (Input.IsActionPressed("move_left") || Input.IsActionPressed("move_right"));
 	}
+
+  public bool getRestart(){
+		return Input.IsActionJustPressed("restart");
+  }
 	
 	public bool getJumpInput()
 	{
