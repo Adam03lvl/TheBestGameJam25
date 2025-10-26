@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://bv1jjfyk4fhxb"]
+[gd_scene load_steps=19 format=4 uid="uid://bv1jjfyk4fhxb"]
 
 [ext_resource type="Script" uid="uid://c4c14hg0o2c2y" path="res://scripts/Level.cs" id="1_084pi"]
 [ext_resource type="PackedScene" uid="uid://ng0srr8uh46a" path="res://Scenes/Player.tscn" id="2_43mlh"]
@@ -1022,19 +1022,25 @@ sources/1 = SubResource("TileSetAtlasSource_cf1a2")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_084pi"]
 size = Vector2(48, 192)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_43mlh"]
-size = Vector2(48, 17)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cp0jt"]
 size = Vector2(20, 48)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p6pjf"]
 
-[node name="Level3" type="Node2D" node_paths=PackedStringArray("toggleScreenComponent", "inputComponent", "player")]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rgu2x"]
+size = Vector2(48, 17)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6lrky"]
+size = Vector2(269, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xgp81"]
+size = Vector2(48, 9)
+
+[node name="Level4" type="Node2D" node_paths=PackedStringArray("toggleScreenComponent", "inputComponent", "player")]
 script = ExtResource("1_084pi")
-lvl = 3
 toggleScreenComponent = NodePath("ToggleComponent")
 inputComponent = NodePath("InputComponent")
+lvl = 3
 player = NodePath("Player")
 
 [node name="Player" parent="." instance=ExtResource("2_43mlh")]
@@ -1065,10 +1071,6 @@ zoom = Vector2(0.5, 0.5)
 position = Vector2(-104, 37)
 shape = SubResource("RectangleShape2D_084pi")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(72, 132.5)
-shape = SubResource("RectangleShape2D_43mlh")
-
 [node name="Finish" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Finish"]
@@ -1086,3 +1088,17 @@ z_index = -1
 position = Vector2(-13.5, 0.5)
 scale = Vector2(0.9125, 0.9125)
 texture = ExtResource("7_43mlh")
+
+[node name="Spikes" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spikes"]
+position = Vector2(72, 132.5)
+shape = SubResource("RectangleShape2D_rgu2x")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Spikes"]
+position = Vector2(-40.5, -138)
+shape = SubResource("RectangleShape2D_6lrky")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Spikes"]
+position = Vector2(216, 176.5)
+shape = SubResource("RectangleShape2D_xgp81")

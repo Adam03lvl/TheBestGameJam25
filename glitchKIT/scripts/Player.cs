@@ -11,6 +11,8 @@ public partial class Player : CharacterBody2D
   public MovementComponent movementComponent;
   [Export]
   public AnimationComponent animationComponent;
+  [Export]
+  public AudioStreamPlayer2D walkingSound;
 
   public Area2D key;
   public Area2D spikes;
@@ -57,8 +59,7 @@ public partial class Player : CharacterBody2D
 		isDying = false;
 	  };
 	}
-  }
-
+}
   public override void _PhysicsProcess(double delta)
   {
 	gravityComponent.handleGravity(this, delta);
@@ -66,6 +67,9 @@ public partial class Player : CharacterBody2D
 	animationComponent.handleMoveAnimation(inputComponent.inputHorizontal);
 	animationComponent.handleJumpAnimation(movementComponent.IsJumping);
 	movementComponent.HandleJump(this, inputComponent.getJumpInput(), gravityComponent.Gravity);
+	
+	if (inputComponent.getMoveInput())
+		walkingSound.Play();
 
 	if (spikes.OverlapsBody(this)) shouldDie = true;
 

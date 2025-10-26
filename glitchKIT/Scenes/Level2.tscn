@@ -1028,7 +1028,7 @@ size = Vector2(108, 9)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rgu2x"]
 size = Vector2(20, 43)
 
-[node name="Level1" type="Node2D" node_paths=PackedStringArray("toggleScreenComponent", "inputComponent", "player")]
+[node name="Level2" type="Node2D" node_paths=PackedStringArray("toggleScreenComponent", "inputComponent", "player")]
 script = ExtResource("1_eufum")
 toggleScreenComponent = NodePath("ToggleComponent")
 inputComponent = NodePath("InputComponent")
@@ -1036,7 +1036,6 @@ lvl = 3
 player = NodePath("Player")
 
 [node name="Player" parent="." instance=ExtResource("2_jg2qr")]
-visible = false
 position = Vector2(-250, 50)
 
 [node name="Tilemaps" parent="." instance=ExtResource("3_8lnj8")]
@@ -1059,14 +1058,12 @@ zoom = Vector2(0.5, 0.5)
 [node name="InputComponent" parent="." instance=ExtResource("6_r5vkr")]
 
 [node name="Spikes" type="Area2D" parent="."]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Spikes"]
 position = Vector2(-169, 127.5)
 shape = SubResource("RectangleShape2D_1ktle")
 
 [node name="Key" type="Area2D" parent="."]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Key"]
 position = Vector2(-246, -86)
@@ -1074,7 +1071,6 @@ shape = SubResource("CircleShape2D_1ktle")
 debug_color = Color(0, 0.6, 0.69803923, 1)
 
 [node name="Finish" type="Area2D" parent="."]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Finish"]
 position = Vector2(270, 106)

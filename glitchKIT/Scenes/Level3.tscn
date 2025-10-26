@@ -1,17 +1,17 @@
 [gd_scene load_steps=16 format=4 uid="uid://bkxqrtk3j5m1s"]
 
-[ext_resource type="Script" uid="uid://c4c14hg0o2c2y" path="res://scripts/Level.cs" id="1_eufum"]
-[ext_resource type="PackedScene" uid="uid://ng0srr8uh46a" path="res://Scenes/Player.tscn" id="2_jg2qr"]
-[ext_resource type="PackedScene" uid="uid://cmpy8viaclyb4" path="res://Scenes/tilemaps.tscn" id="3_8lnj8"]
-[ext_resource type="Texture2D" uid="uid://cfc62f1xdxlh0" path="res://assets/tilemaps/contrast/Tilemap/monochrome_tilemap_transparent.png" id="4_nni88"]
-[ext_resource type="PackedScene" uid="uid://dykq35vt6j0m4" path="res://Scenes/components/ToggleScreenComponent.tscn" id="5_oi2l3"]
-[ext_resource type="PackedScene" uid="uid://d0kmoxvx6lx6o" path="res://Scenes/components/InputComponent.tscn" id="6_r5vkr"]
-[ext_resource type="Texture2D" uid="uid://cd4fjkckif0n2" path="res://assets/bg/level2.png" id="7_ehjmi"]
+[ext_resource type="Script" uid="uid://c4c14hg0o2c2y" path="res://scripts/Level.cs" id="1_084pi"]
+[ext_resource type="PackedScene" uid="uid://ng0srr8uh46a" path="res://Scenes/Player.tscn" id="2_43mlh"]
+[ext_resource type="PackedScene" uid="uid://cmpy8viaclyb4" path="res://Scenes/tilemaps.tscn" id="3_cp0jt"]
+[ext_resource type="Texture2D" uid="uid://cfc62f1xdxlh0" path="res://assets/tilemaps/contrast/Tilemap/monochrome_tilemap_transparent.png" id="4_p6pjf"]
+[ext_resource type="PackedScene" uid="uid://dykq35vt6j0m4" path="res://Scenes/components/ToggleScreenComponent.tscn" id="5_m7vvj"]
+[ext_resource type="PackedScene" uid="uid://d0kmoxvx6lx6o" path="res://Scenes/components/InputComponent.tscn" id="6_kg31f"]
+[ext_resource type="Texture2D" uid="uid://cd4fjkckif0n2" path="res://assets/bg/level2.png" id="7_43mlh"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_4wjk2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iqpdx"]
-texture = ExtResource("4_nni88")
+texture = ExtResource("4_p6pjf")
 separation = Vector2i(1, 1)
 1:0/0 = 0
 2:0/0 = 0
@@ -507,7 +507,7 @@ physics_layer_0/physics_material = SubResource("PhysicsMaterial_4wjk2")
 sources/21 = SubResource("TileSetAtlasSource_iqpdx")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cf1a2"]
-texture = ExtResource("4_nni88")
+texture = ExtResource("4_p6pjf")
 separation = Vector2i(1, 1)
 1:0/0 = 0
 2:0/0 = 0
@@ -1031,17 +1031,17 @@ size = Vector2(12, 21.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p4u3k"]
 size = Vector2(27, 46)
 
-[node name="Level2" type="Node2D" node_paths=PackedStringArray("toggleScreenComponent", "inputComponent", "player")]
-script = ExtResource("1_eufum")
-lvl = 2
+[node name="Level3" type="Node2D" node_paths=PackedStringArray("toggleScreenComponent", "inputComponent", "player")]
+script = ExtResource("1_084pi")
 toggleScreenComponent = NodePath("ToggleComponent")
 inputComponent = NodePath("InputComponent")
+lvl = 2
 player = NodePath("Player")
 
-[node name="Player" parent="." instance=ExtResource("2_jg2qr")]
+[node name="Player" parent="." instance=ExtResource("2_43mlh")]
 position = Vector2(-241, 50)
 
-[node name="Tilemaps" parent="." instance=ExtResource("3_8lnj8")]
+[node name="Tilemaps" parent="." instance=ExtResource("3_cp0jt")]
 
 [node name="real" type="TileMapLayer" parent="Tilemaps"]
 position = Vector2(63, -11)
@@ -1056,9 +1056,9 @@ tile_set = SubResource("TileSet_cg6sp")
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(0.5, 0.5)
 
-[node name="ToggleComponent" parent="." instance=ExtResource("5_oi2l3")]
+[node name="ToggleComponent" parent="." instance=ExtResource("5_m7vvj")]
 
-[node name="InputComponent" parent="." instance=ExtResource("6_r5vkr")]
+[node name="InputComponent" parent="." instance=ExtResource("6_kg31f")]
 
 [node name="Spikes" type="Area2D" parent="."]
 
@@ -1082,4 +1082,4 @@ shape = SubResource("RectangleShape2D_p4u3k")
 z_index = -1
 position = Vector2(1.000001, 23)
 scale = Vector2(2.3820226, 2.3820224)
-texture = ExtResource("7_ehjmi")
+texture = ExtResource("7_43mlh")
