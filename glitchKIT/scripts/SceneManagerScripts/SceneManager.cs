@@ -10,7 +10,7 @@ public partial class SceneManager : Node
   private TextureRect _keyImage;
   private ColorRect _glitchShader;
   private Tween _currentTween;
-  public bool AR = true;
+  public bool AR = false;
 
   public override void _Ready()
   {

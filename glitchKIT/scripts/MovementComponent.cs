@@ -29,7 +29,10 @@ public partial class MovementComponent : Node
   }
 
   public void HandleJump(CharacterBody2D body, bool wantToJump, float gravity){
-	if(stopMoving) return;
+	if(stopMoving) {
+    body.Velocity = Vector2.Zero;
+    return;
+  }
 	if(wantToJump && body.IsOnFloor()){
 		body.Velocity -= new Vector2(body.Velocity.X, (float) Mathf.Lerp(JumpSpeed, jumpAcceleration, 0.1));
 		jumpingAudio.Play();
