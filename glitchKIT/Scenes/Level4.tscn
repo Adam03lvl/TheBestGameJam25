@@ -1023,7 +1023,8 @@ sources/1 = SubResource("TileSetAtlasSource_cf1a2")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1ktle"]
 size = Vector2(108, 9)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_1ktle"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6lrky"]
+size = Vector2(13, 12)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rgu2x"]
 size = Vector2(20, 43)
@@ -1067,11 +1068,10 @@ position = Vector2(-169, 127.5)
 shape = SubResource("RectangleShape2D_1ktle")
 
 [node name="Key" type="Area2D" parent="."]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Key"]
-position = Vector2(-246, -86)
-shape = SubResource("CircleShape2D_1ktle")
+position = Vector2(-249.5, -82)
+shape = SubResource("RectangleShape2D_6lrky")
 debug_color = Color(0, 0.6, 0.69803923, 1)
 
 [node name="Finish" type="Area2D" parent="."]
