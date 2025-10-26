@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=3 uid="uid://ng0srr8uh46a"]
+[gd_scene load_steps=63 format=3 uid="uid://ng0srr8uh46a"]
 
 [ext_resource type="Script" uid="uid://cjdafd3rj5eiv" path="res://scripts/Player.cs" id="1_y30ri"]
 [ext_resource type="PackedScene" uid="uid://bgooxd60nn7el" path="res://Scenes/components/GravityComponent.tscn" id="2_62i1b"]
@@ -59,6 +59,8 @@
 [ext_resource type="PackedScene" uid="uid://dd8wwa6lgde6x" path="res://Scenes/components/AnimationComponent.tscn" id="41_o5v3d"]
 [ext_resource type="Texture2D" uid="uid://bruaivx0gum4x" path="res://assets/player/fall/Wraith_03_Taunt_016.png" id="42_mxc63"]
 [ext_resource type="Texture2D" uid="uid://dydls83b2gool" path="res://assets/player/fall/Wraith_03_Taunt_017.png" id="43_547tu"]
+[ext_resource type="AudioStream" uid="uid://cmfs4761v52dr" path="res://assets/sounds/walking.mp3" id="60_wenux"]
+[ext_resource type="AudioStream" uid="uid://bp4s1qsknmy3a" path="res://assets/sounds/jump.mp3" id="61_vy33c"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_t3pjh"]
 animations = [{
@@ -250,12 +252,13 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("gravityComponent", "inputComponent", "movementComponent", "animationComponent")]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("gravityComponent", "inputComponent", "movementComponent", "animationComponent", "walkingSound")]
 script = ExtResource("1_y30ri")
 gravityComponent = NodePath("GravityComponent")
 inputComponent = NodePath("InputComponent")
 movementComponent = NodePath("MovementComponent")
 animationComponent = NodePath("AnimationComponent")
+walkingSound = NodePath("Walking")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(1.0000019, -4)
@@ -269,7 +272,8 @@ frame_progress = 0.24449843
 
 [node name="InputComponent" parent="." instance=ExtResource("4_82gks")]
 
-[node name="MovementComponent" parent="." instance=ExtResource("5_dc1pm")]
+[node name="MovementComponent" parent="." node_paths=PackedStringArray("jumpingAudio") instance=ExtResource("5_dc1pm")]
+jumpingAudio = NodePath("../Jumping")
 
 [node name="AnimationComponent" parent="." node_paths=PackedStringArray("sprite") instance=ExtResource("41_o5v3d")]
 sprite = NodePath("../AnimatedSprite2D")
@@ -278,3 +282,9 @@ sprite = NodePath("../AnimatedSprite2D")
 position = Vector2(-12, 2)
 scale = Vector2(0.37493786, 0.37493783)
 polygon = PackedVector2Array(19.884073, -73.96193, -0.56022835, -31.381601, 12.890278, -13.447601, 8.40679, -4.4805984, 21.857279, -2.2388458, 15.132029, 15.69516, 39.79129, 15.69516, 64.45053, -33.623344, 57.725292, -60.52437)
+
+[node name="Walking" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("60_wenux")
+
+[node name="Jumping" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("61_vy33c")

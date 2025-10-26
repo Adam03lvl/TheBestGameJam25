@@ -1,17 +1,18 @@
-[gd_scene load_steps=16 format=4 uid="uid://bq5tbpko2pam0"]
+[gd_scene load_steps=17 format=4 uid="uid://bq5tbpko2pam0"]
 
-[ext_resource type="Script" uid="uid://c4c14hg0o2c2y" path="res://scripts/Level.cs" id="1_x7a1n"]
-[ext_resource type="PackedScene" uid="uid://ng0srr8uh46a" path="res://Scenes/Player.tscn" id="2_vv0ms"]
-[ext_resource type="PackedScene" uid="uid://cmpy8viaclyb4" path="res://Scenes/tilemaps.tscn" id="3_hxa32"]
-[ext_resource type="Texture2D" uid="uid://cfc62f1xdxlh0" path="res://assets/tilemaps/contrast/Tilemap/monochrome_tilemap_transparent.png" id="4_dlght"]
-[ext_resource type="PackedScene" uid="uid://dykq35vt6j0m4" path="res://Scenes/components/ToggleScreenComponent.tscn" id="5_8i65c"]
-[ext_resource type="PackedScene" uid="uid://d0kmoxvx6lx6o" path="res://Scenes/components/InputComponent.tscn" id="6_m35rq"]
-[ext_resource type="Texture2D" uid="uid://buuq6qqd5f8tg" path="res://assets/bg/tutorial.png" id="7_sgy12"]
+[ext_resource type="Script" uid="uid://c4c14hg0o2c2y" path="res://scripts/Level.cs" id="1_t3or0"]
+[ext_resource type="PackedScene" uid="uid://ng0srr8uh46a" path="res://Scenes/Player.tscn" id="2_ysn8j"]
+[ext_resource type="PackedScene" uid="uid://cmpy8viaclyb4" path="res://Scenes/tilemaps.tscn" id="3_6ll4n"]
+[ext_resource type="Texture2D" uid="uid://cfc62f1xdxlh0" path="res://assets/tilemaps/contrast/Tilemap/monochrome_tilemap_transparent.png" id="4_kylad"]
+[ext_resource type="PackedScene" uid="uid://dykq35vt6j0m4" path="res://Scenes/components/ToggleScreenComponent.tscn" id="5_bdlbp"]
+[ext_resource type="PackedScene" uid="uid://d0kmoxvx6lx6o" path="res://Scenes/components/InputComponent.tscn" id="6_2h8qs"]
+[ext_resource type="Texture2D" uid="uid://buuq6qqd5f8tg" path="res://assets/bg/tutorial.png" id="7_ysn8j"]
+[ext_resource type="AudioStream" uid="uid://cckd4pcodiain" path="res://assets/sounds/cave.mp3" id="8_6ll4n"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_4wjk2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iqpdx"]
-texture = ExtResource("4_dlght")
+texture = ExtResource("4_kylad")
 separation = Vector2i(1, 1)
 1:0/0 = 0
 2:0/0 = 0
@@ -507,7 +508,7 @@ physics_layer_0/physics_material = SubResource("PhysicsMaterial_4wjk2")
 sources/21 = SubResource("TileSetAtlasSource_iqpdx")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cf1a2"]
-texture = ExtResource("4_dlght")
+texture = ExtResource("4_kylad")
 separation = Vector2i(1, 1)
 1:0/0 = 0
 2:0/0 = 0
@@ -1030,17 +1031,17 @@ size = Vector2(12, 41)
 size = Vector2(143, 7)
 
 [node name="Level1" type="Node2D" node_paths=PackedStringArray("toggleScreenComponent", "inputComponent", "player", "finish")]
-script = ExtResource("1_x7a1n")
-lvl = 1
+script = ExtResource("1_t3or0")
 toggleScreenComponent = NodePath("ToggleComponent")
 inputComponent = NodePath("InputComponent")
+lvl = 1
 player = NodePath("Player")
 finish = NodePath("Finish")
 
-[node name="Player" parent="." instance=ExtResource("2_vv0ms")]
+[node name="Player" parent="." instance=ExtResource("2_ysn8j")]
 position = Vector2(-222, 50)
 
-[node name="Tilemaps" parent="." instance=ExtResource("3_hxa32")]
+[node name="Tilemaps" parent="." instance=ExtResource("3_6ll4n")]
 
 [node name="real" type="TileMapLayer" parent="Tilemaps"]
 position = Vector2(63, -11)
@@ -1056,9 +1057,9 @@ tile_set = SubResource("TileSet_cg6sp")
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(0.5, 0.5)
 
-[node name="ToggleComponent" parent="." instance=ExtResource("5_8i65c")]
+[node name="ToggleComponent" parent="." instance=ExtResource("5_bdlbp")]
 
-[node name="InputComponent" parent="." instance=ExtResource("6_m35rq")]
+[node name="InputComponent" parent="." instance=ExtResource("6_2h8qs")]
 
 [node name="Key" type="Area2D" parent="."]
 position = Vector2(-8, 90)
@@ -1085,4 +1086,8 @@ shape = SubResource("RectangleShape2D_6ll4n")
 z_index = -1
 position = Vector2(1.2222161, -0.5000038)
 scale = Vector2(0.5097222, 0.50972223)
-texture = ExtResource("7_sgy12")
+texture = ExtResource("7_ysn8j")
+
+[node name="CaveSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_6ll4n")
+autoplay = true

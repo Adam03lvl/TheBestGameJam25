@@ -13,6 +13,7 @@ public partial class Level : Node
 	public Player player;
 	[Export]
 	public Area2D finish;
+	
 	public TileMapLayer real;
 	public TileMapLayer fake;
 
