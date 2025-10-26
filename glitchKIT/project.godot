@@ -30,10 +30,6 @@ window/stretch/mode="viewport"
 
 project/assembly_name="GlitchKIT"
 
-[global_group]
-
-Spikes=""
-
 [input]
 
 move_left={
