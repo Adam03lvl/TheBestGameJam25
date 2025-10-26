@@ -258,7 +258,7 @@ movementComponent = NodePath("MovementComponent")
 animationComponent = NodePath("AnimationComponent")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(26.496376, -6.0221634)
+position = Vector2(1.0000019, -4)
 scale = Vector2(0.11894211, 0.11894205)
 sprite_frames = SubResource("SpriteFrames_t3pjh")
 animation = &"run"
@@ -275,6 +275,6 @@ frame_progress = 0.24449843
 sprite = NodePath("../AnimatedSprite2D")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-position = Vector2(12.999999, 3.5762787e-07)
+position = Vector2(-12, 2)
 scale = Vector2(0.37493786, 0.37493783)
 polygon = PackedVector2Array(19.884073, -73.96193, -0.56022835, -31.381601, 12.890278, -13.447601, 8.40679, -4.4805984, 21.857279, -2.2388458, 15.132029, 15.69516, 39.79129, 15.69516, 64.45053, -33.623344, 57.725292, -60.52437)
