@@ -9,19 +9,21 @@ public partial class Level : Node
 	public InputComponent inputComponent;
 	[Export]
 	public int lvl;
-	[Export]
-  public Node2D player;
-
+  [Export]
+  public Player player;
+  [Export]
+  public Area2D finish;
   public TileMapLayer real;
   public TileMapLayer fake;
 
-
   public bool isFinished = false;
+  public bool isReal = true;
 
 	public override void _Ready()
 	{
 	real = GetNode<TileMapLayer>("Tilemaps/real");
 	fake = GetNode<TileMapLayer>("Tilemaps/fake");
+  finish = GetNode<Area2D>("Finish");
 
 	real.Enabled = true;
 	fake.Visible = false;
@@ -30,11 +32,28 @@ public partial class Level : Node
 
 	public override void _Process(double delta)
 	{
+	handleRestart();
+	handleFinish();
+
 	if(inputComponent.getToggleInput()){
 	  toggleScreenComponent.toggleScreen(real, fake);
-	}
-	if(player.Position.X >= 260){
-	  SceneManager.instance.ChangeScene($"Level{lvl+1}");
-	}
-	}
+    isReal = !isReal;
+  }
+
+  if(isFinished){
+    SceneManager.instance.ChangeScene($"Level{lvl+1}");
+  }
+  }
+
+  public void handleFinish(){
+    if(player.hasKey && finish.OverlapsBody(player))
+      isFinished = true;
+  }
+
+  public void handleRestart(){
+    if(player.shouldDie && !isReal){
+      toggleScreenComponent.toggleScreen(real, fake);
+      isReal = !isReal;
+    }
+  }
 }
