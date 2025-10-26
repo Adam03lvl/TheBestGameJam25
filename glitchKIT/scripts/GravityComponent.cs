@@ -9,14 +9,16 @@ public partial class GravityComponent : Node
   public float MaxSpeed = 340f;
 	
 	public bool IsFalling = false;
+	public bool stopMoving = false;
 	
 	public void handleGravity(CharacterBody2D body, double delta)
 	{
-	body.Velocity = new Vector2(
-		body.Velocity.X, 
-		Mathf.Min(body.Velocity.Y + Gravity * (float)delta, MaxSpeed)
-		);
-			
-		IsFalling = body.Velocity.Y > 0 && !body.IsOnFloor();
-	}
+    if(stopMoving) return;
+    body.Velocity = new Vector2(
+        body.Velocity.X, 
+        Mathf.Min(body.Velocity.Y + Gravity * (float)delta, MaxSpeed)
+        );
+
+    IsFalling = body.Velocity.Y > 0 && !body.IsOnFloor();
+  }
 }

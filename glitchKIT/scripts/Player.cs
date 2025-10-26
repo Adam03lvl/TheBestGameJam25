@@ -72,8 +72,12 @@ public partial class Player : CharacterBody2D
 	if (!hasKey && key.OverlapsBody(this))
 	{
 	  movementComponent.stopMoving = true;
+	  gravityComponent.stopMoving = true;
 	  SceneManager.instance.ShowImage("res://assets/Keycollected.png", .5f, .2f);
-	  GetTree().CreateTimer(1.0f).Timeout += ()=> movementComponent.stopMoving=false;
+	  GetTree().CreateTimer(1.0f).Timeout += ()=> {
+	  movementComponent.stopMoving=false;
+	  gravityComponent.stopMoving = false;
+	};
 	  hasKey = true;
 	}
 
