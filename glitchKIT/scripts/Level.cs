@@ -7,9 +7,16 @@ public partial class Level : Node
   public ToggleScreenComponent toggleScreenComponent;
 	[Export]
 	public InputComponent inputComponent;
+	[Export]
+	public int lvl;
+	[Export]
+  public Node2D player;
 
   public TileMapLayer real;
   public TileMapLayer fake;
+
+
+  public bool isFinished = false;
 
 	public override void _Ready()
 	{
@@ -25,6 +32,9 @@ public partial class Level : Node
 	{
 	if(inputComponent.getToggleInput()){
 	  toggleScreenComponent.toggleScreen(real, fake);
+	}
+	if(player.Position.X >= 260){
+	  SceneManager.instance.ChangeScene($"Level{lvl+1}");
 	}
 	}
 }

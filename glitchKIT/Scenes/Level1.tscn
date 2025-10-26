@@ -1,14 +1,16 @@
-[gd_scene load_steps=10 format=4 uid="uid://vcia7mijw2g2"]
+[gd_scene load_steps=12 format=4 uid="uid://bq5tbpko2pam0"]
 
-[ext_resource type="PackedScene" uid="uid://4pqund3nukl7" path="res://Scenes/Level.tscn" id="1_iibxp"]
-[ext_resource type="PackedScene" uid="uid://ng0srr8uh46a" path="res://Scenes/Player.tscn" id="2_dtoa7"]
-[ext_resource type="Texture2D" uid="uid://cfc62f1xdxlh0" path="res://assets/tilemaps/contrast/Tilemap/monochrome_tilemap_transparent.png" id="4_iqpdx"]
-[ext_resource type="PackedScene" uid="uid://cmpy8viaclyb4" path="res://Scenes/tilemaps.tscn" id="4_jkyyr"]
+[ext_resource type="Script" uid="uid://c4c14hg0o2c2y" path="res://scripts/Level.cs" id="1_t3or0"]
+[ext_resource type="PackedScene" uid="uid://ng0srr8uh46a" path="res://Scenes/Player.tscn" id="2_ysn8j"]
+[ext_resource type="PackedScene" uid="uid://cmpy8viaclyb4" path="res://Scenes/tilemaps.tscn" id="3_6ll4n"]
+[ext_resource type="Texture2D" uid="uid://cfc62f1xdxlh0" path="res://assets/tilemaps/contrast/Tilemap/monochrome_tilemap_transparent.png" id="4_kylad"]
+[ext_resource type="PackedScene" uid="uid://dykq35vt6j0m4" path="res://Scenes/components/ToggleScreenComponent.tscn" id="5_bdlbp"]
+[ext_resource type="PackedScene" uid="uid://d0kmoxvx6lx6o" path="res://Scenes/components/InputComponent.tscn" id="6_2h8qs"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_4wjk2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iqpdx"]
-texture = ExtResource("4_iqpdx")
+texture = ExtResource("4_kylad")
 separation = Vector2i(1, 1)
 1:0/0 = 0
 2:0/0 = 0
@@ -504,7 +506,7 @@ physics_layer_0/physics_material = SubResource("PhysicsMaterial_4wjk2")
 sources/21 = SubResource("TileSetAtlasSource_iqpdx")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cf1a2"]
-texture = ExtResource("4_iqpdx")
+texture = ExtResource("4_kylad")
 separation = Vector2i(1, 1)
 1:0/0 = 0
 2:0/0 = 0
@@ -1017,37 +1019,41 @@ separation = Vector2i(1, 1)
 physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_cf1a2")
 
-[node name="World" type="Node2D"]
+[node name="Level1" type="Node2D" node_paths=PackedStringArray("toggleScreenComponent", "inputComponent", "player")]
+script = ExtResource("1_t3or0")
+toggleScreenComponent = NodePath("ToggleComponent")
+inputComponent = NodePath("InputComponent")
+lvl = 1
+player = NodePath("Player")
 
-[node name="Level1" parent="." instance=ExtResource("1_iibxp")]
-visible = false
-position = Vector2(2, 2)
-
-[node name="Player" parent="Level1" instance=ExtResource("2_dtoa7")]
-visible = false
+[node name="Player" parent="." instance=ExtResource("2_ysn8j")]
 position = Vector2(-250, 50)
 
-[node name="Tilemaps" parent="Level1" instance=ExtResource("4_jkyyr")]
+[node name="Tilemaps" parent="." instance=ExtResource("3_6ll4n")]
 
-[node name="real" type="TileMapLayer" parent="Level1/Tilemaps"]
-position = Vector2(63, -8)
+[node name="real" type="TileMapLayer" parent="Tilemaps"]
+position = Vector2(63, -11)
 tile_map_data = PackedByteArray("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")
 tile_set = SubResource("TileSet_jkyyr")
 
-[node name="fake" type="TileMapLayer" parent="Level1/Tilemaps"]
+[node name="fake" type="TileMapLayer" parent="Tilemaps"]
 visible = false
-position = Vector2(63, -8)
+position = Vector2(63, -11)
 tile_map_data = PackedByteArray("AAD6/wcAAQALAAgAAAD7/wcAAQALAAgAAAD8/wcAAQALAAgAAAD9/wcAAQAMAAgAAAD5/wcAAQAKAAgAAAD5/wgAAQAQAAkAAAD6/wgAAQAQAAkAAAD7/wgAAQAQAAkAAAD8/wgAAQAQAAkAAAD9/wgAAQAQAAkAAADr/wgAAQAPAAoAAADr/wcAAQAPAAoAAADr/wYAAQAPAAoAAADr/wUAAQAPAAoAAADr/wQAAQAPAAoAAADr/wMAAQAPAAoAAADr/wIAAQAPAAoAAADr/wEAAQAPAAoAAADr/wAAAQAPAAoAAADr////AQAPAAoAAADr//7/AQAPAAoAAADr//3/AQAPAAoAAADr//z/AQAPAAoAAADr//v/AQAPAAoAAADr//r/AQAPAAoAAADr//n/AQAPAAoAAADr//j/AQAPAAkAAAAOAAgAAQAPAAoAAAAOAAcAAQAPAAoAAAAOAAYAAQAPAAoAAAAOAAUAAQAPAAoAAAAOAAQAAQAPAAoAAAAOAAMAAQAPAAoAAAAOAAIAAQAPAAoAAAAOAAEAAQAPAAoAAAAOAAAAAQAPAAoAAAAOAP//AQAPAAoAAAAOAP7/AQAPAAoAAAAOAP3/AQAPAAoAAAAOAPz/AQAPAAoAAAAOAPv/AQAPAAoAAAAOAPr/AQAPAAoAAAAOAPn/AQAPAAoAAAAOAPj/AQAPAAoAAAANAAgAAQARAAoAAAANAAcAAQARAAoAAAANAAYAAQARAAoAAAANAAUAAQARAAoAAAANAAQAAQARAAoAAAANAAMAAQARAAoAAAANAAIAAQARAAoAAAANAAEAAQARAAoAAAANAAAAAQARAAoAAAANAP//AQARAAoAAAANAP7/AQARAAoAAAANAP3/AQARAAoAAAANAPz/AQARAAoAAAANAPv/AQARAAoAAAANAPr/AQARAAoAAAANAPn/AQARAAoAAAANAPj/AQARAAkAAADq/wgAAQARAAoAAADq/wcAAQARAAoAAADq/wYAAQARAAoAAADq/wUAAQARAAoAAADq/wQAAQARAAoAAADq/wMAAQARAAoAAADq/wIAAQARAAoAAADq/wEAAQARAAoAAADq/wAAAQARAAoAAADq////AQARAAoAAADq//7/AQARAAoAAADq//3/AQARAAoAAADq//z/AQARAAoAAADq//v/AQARAAoAAADq//r/AQARAAoAAADq//n/AQARAAoAAADq//j/AQARAAoAAADx//j/AQAQAAkAAADy//j/AQAQAAkAAADz//j/AQAQAAkAAAD0//j/AQAQAAkAAAD1//j/AQAQAAkAAAD2//j/AQAQAAkAAAD3//j/AQAQAAkAAAD4//j/AQAQAAkAAAD5//j/AQAQAAkAAAD6//j/AQAQAAkAAAD7//j/AQAQAAkAAAD8//j/AQAQAAkAAAACAPj/AQAQAAkAAAADAPj/AQAQAAkAAAAEAPj/AQAQAAkAAAAFAPj/AQAQAAkAAAAGAPj/AQAQAAkAAAAHAPj/AQAQAAkAAAAIAPj/AQAQAAkAAAAJAPj/AQAQAAkAAAALAPj/AQAQAAkAAAAMAPj/AQAQAAkAAADs//j/AQAQAAkAAADr//f/AQAQAAsAAADs//f/AQAQAAsAAADt//f/AQAQAAsAAADu//f/AQAQAAsAAADv//f/AQAQAAsAAADw//f/AQAQAAsAAADx//f/AQAQAAsAAADy//f/AQAQAAsAAADz//f/AQAQAAsAAAD0//f/AQAQAAsAAAD1//f/AQAQAAsAAAD2//f/AQAQAAsAAAD3//f/AQAQAAsAAAD4//f/AQAQAAsAAAD5//f/AQAQAAsAAAD6//f/AQAQAAsAAAD7//f/AQAQAAsAAAD8//f/AQAQAAsAAAD9//f/AQAQAAsAAAD+//f/AQAQAAsAAAD///f/AQAQAAsAAAAAAPf/AQAQAAsAAAABAPf/AQAQAAsAAAACAPf/AQAQAAsAAAADAPf/AQAQAAsAAAAEAPf/AQAQAAsAAAAFAPf/AQAQAAsAAAAGAPf/AQAQAAsAAAAHAPf/AQAQAAsAAAAIAPf/AQAQAAsAAAAJAPf/AQAQAAsAAAAKAPf/AQAQAAsAAAALAPf/AQAQAAsAAAAMAPf/AQAQAAsAAAANAPf/AQAQAAsAAADt//j/AQAGAAgAAADu//j/AQAGAAgAAADv//j/AQAGAAgAAADw//j/AQAGAAgAAAD9//j/AQAGAAgAAAD+//j/AQAGAAgAAAD///j/AQAGAAgAAAAAAPj/AQAGAAgAAAABAPj/AQAGAAgAAAAKAPj/AQAGAAgAAADr/wkAAQAQAAkAAADs/wkAAQAQAAkAAADt/wkAAQAQAAkAAADu/wkAAQAQAAkAAADv/wkAAQAQAAkAAADw/wkAAQAQAAkAAAANAAkAAQAQAAkAAAAMAAkAAQAQAAkAAAALAAkAAQAQAAkAAAA=")
 tile_set = SubResource("TileSet_cg6sp")
 
-[node name="Camera2D" type="Camera2D" parent="Level1"]
+[node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(0.5, 0.5)
 
-[node name="ColorRect" type="ColorRect" parent="Level1/Camera2D"]
+[node name="ColorRect" type="ColorRect" parent="Camera2D"]
 z_index = -1
-offset_left = -1196.0
-offset_top = -636.0
-offset_right = -1162.6074
-offset_bottom = -596.6147
+offset_left = -1202.0
+offset_top = -617.00006
+offset_right = -1168.6074
+offset_bottom = -577.61475
 scale = Vector2(71.3521, 32.598427)
 color = Color(0, 0, 0, 1)
+
+[node name="ToggleComponent" parent="." instance=ExtResource("5_bdlbp")]
+
+[node name="InputComponent" parent="." instance=ExtResource("6_2h8qs")]
